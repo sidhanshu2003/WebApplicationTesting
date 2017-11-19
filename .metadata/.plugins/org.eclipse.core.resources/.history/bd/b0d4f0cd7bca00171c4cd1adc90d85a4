@@ -1,0 +1,54 @@
+package com.Keyword;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class NewToursLogInTest
+{
+
+	
+FirefoxDriver driver;
+	
+	@BeforeTest
+	public void setUp()
+	{
+		//driver = new FirefoxDriver();
+		//driver.get("http://newtours.demoaut.com");
+		
+		System.setProperty("webdriver.gecko.driver", "D:\\SeleniumJarFiles\\geckodriver-v0.19.1-win32\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		driver.get("http://newtours.demoaut.com");
+	
+	}
+	
+	@Test(priority=1)
+	public void LogIn() throws IOException
+	{
+	
+	    //FileInputStream file = new FileInputStream("C:\\Users\\Sys\\Desktop\\WeekEndBatch\\WebApplicationTesting\\NewToursApplicaion,properties");
+		FileInputStream file = new FileInputStream("D:\\WebBasedproject\\TSRTCApplicationTesting\\src\\com\\properties\\NewToursApplication,properties");
+		Properties pr = new Properties();
+		pr.load(file);
+		
+		driver.findElement(By.name(pr.getProperty("UserName"))).sendKeys("tutorial");
+		driver.findElement(By.name(pr.getProperty("Pwd"))).sendKeys("tutorial");
+		driver.findElement(By.name(pr.getProperty("SignIn"))).click();
+		
+	}
+	
+	@AfterTest
+	public void tearDown()
+	{
+		driver.close();
+	}
+	
+	
+}

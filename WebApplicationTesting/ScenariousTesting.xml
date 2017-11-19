@@ -1,0 +1,23 @@
+<suite name="Testing Scenarios" parallel="tests">
+ 
+  <test name="DataDriven Test">
+    <classes>
+      <class name="com.DataDriven.NewTours_NewUserRegistration_TestData"/>
+    </classes>
+  </test>
+  
+  
+  <test name="KeyWord Test">
+    <classes>
+      <class name="com.KeyWord.NewToursLogInTest"/>
+    </classes>
+  </test> 
+  
+  <test name="POM Test">
+    <classes>
+      <class name="com.POM.NewToursHomePageTesting"/>
+    </classes>
+  </test> 
+  
+   
+</suite> 

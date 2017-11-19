@@ -1,0 +1,34 @@
+package com.POM;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+public class NewToursHomePageTesting
+{
+	FirefoxDriver driver;
+	@Test
+	public void HomePageTesting()
+	{
+	System.setProperty("webdriver.gecko.driver", "D:\\SeleniumJarFiles\\geckodriver-v0.19.1-win32\\geckodriver.exe");
+	driver = new FirefoxDriver();
+	driver.get("http://newtours.demoaut.com");
+	
+	WelComeMercuryTours WMT = PageFactory.initElements(driver, WelComeMercuryTours.class);
+	
+	
+	WMT.Register();
+	driver.navigate().back();
+	
+	WMT.Support();
+	driver.navigate().back();
+	
+	WMT.FindAFlight("tutorial", "tutorial");
+	driver.navigate().back();
+	
+	driver.close();
+	
+	
+	}
+}
